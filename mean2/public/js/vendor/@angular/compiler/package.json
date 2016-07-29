@@ -10,7 +10,7 @@
         "spec": "2.0.0-rc.1",
         "type": "version"
       },
-      "d:\\MEAN2\\udemy"
+      "D:\\GIT Repo\\mean2\\mean2"
     ]
   ],
   "_from": "@angular/compiler@2.0.0-rc.1",
@@ -39,13 +39,14 @@
     "type": "version"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-2.0.0-rc.1.tgz",
   "_shasum": "2f69d866bc7623c80ba05dd4e1339bcfb02d0960",
   "_shrinkwrap": null,
   "_spec": "@angular/compiler@2.0.0-rc.1",
-  "_where": "d:\\MEAN2\\udemy",
+  "_where": "D:\\GIT Repo\\mean2\\mean2",
   "author": {
     "name": "angular"
   },

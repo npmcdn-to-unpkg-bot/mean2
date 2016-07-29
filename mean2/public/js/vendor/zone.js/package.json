@@ -10,7 +10,7 @@
         "spec": "0.6.8",
         "type": "version"
       },
-      "d:\\MEAN2\\udemy"
+      "D:\\GIT Repo\\mean2\\mean2"
     ]
   ],
   "_from": "zone.js@0.6.8",
@@ -39,13 +39,14 @@
     "type": "version"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.6.8.tgz",
   "_shasum": "2717d71ad94aad902a18b77e86953fe2b6717a47",
   "_shrinkwrap": null,
   "_spec": "zone.js@0.6.8",
-  "_where": "d:\\MEAN2\\udemy",
+  "_where": "D:\\GIT Repo\\mean2\\mean2",
   "author": {
     "name": "Brian Ford"
   },

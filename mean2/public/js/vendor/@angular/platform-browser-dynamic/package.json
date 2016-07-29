@@ -10,7 +10,7 @@
         "spec": "2.0.0-rc.1",
         "type": "version"
       },
-      "d:\\MEAN2\\udemy"
+      "D:\\GIT Repo\\mean2\\mean2"
     ]
   ],
   "_from": "@angular/platform-browser-dynamic@2.0.0-rc.1",
@@ -39,13 +39,14 @@
     "type": "version"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.0.0-rc.1.tgz",
   "_shasum": "0edb02929dbe479afdfeba6a1a3b67985a8f66ff",
   "_shrinkwrap": null,
   "_spec": "@angular/platform-browser-dynamic@2.0.0-rc.1",
-  "_where": "d:\\MEAN2\\udemy",
+  "_where": "D:\\GIT Repo\\mean2\\mean2",
   "author": {
     "name": "angular"
   },

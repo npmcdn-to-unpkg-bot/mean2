@@ -10,7 +10,7 @@
         "spec": "0.19.25",
         "type": "version"
       },
-      "d:\\MEAN2\\udemy"
+      "D:\\GIT Repo\\mean2\\mean2"
     ]
   ],
   "_from": "systemjs@0.19.25",
@@ -39,13 +39,14 @@
     "type": "version"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/systemjs/-/systemjs-0.19.25.tgz",
   "_shasum": "e7e45e8b7f95c4a65d4d8c75087ae0d891dea951",
   "_shrinkwrap": null,
   "_spec": "systemjs@0.19.25",
-  "_where": "d:\\MEAN2\\udemy",
+  "_where": "D:\\GIT Repo\\mean2\\mean2",
   "author": {
     "name": "Guy Bedford"
   },

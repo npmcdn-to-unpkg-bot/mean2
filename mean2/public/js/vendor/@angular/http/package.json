@@ -10,7 +10,7 @@
         "spec": "2.0.0-rc.1",
         "type": "version"
       },
-      "d:\\MEAN2\\udemy"
+      "D:\\GIT Repo\\mean2\\mean2"
     ]
   ],
   "_from": "@angular/http@2.0.0-rc.1",
@@ -39,13 +39,14 @@
     "type": "version"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular/http/-/http-2.0.0-rc.1.tgz",
   "_shasum": "9be6485e74f4edbcdc856f04235d9b467fc6cdeb",
   "_shrinkwrap": null,
   "_spec": "@angular/http@2.0.0-rc.1",
-  "_where": "d:\\MEAN2\\udemy",
+  "_where": "D:\\GIT Repo\\mean2\\mean2",
   "author": {
     "name": "angular"
   },

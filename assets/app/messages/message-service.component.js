@@ -1,3 +1,4 @@
+var message_1 = require("./message");
 var MessageServiceComponent = (function () {
     function MessageServiceComponent() {
         this.messages = [];
@@ -8,6 +9,9 @@ var MessageServiceComponent = (function () {
     };
     MessageServiceComponent.prototype.getMessage = function () {
         return this.messages;
+    };
+    MessageServiceComponent.prototype.editMessage = function (message) {
+        this.messages[this.messages.indexOf(message)] = new message_1.Message('Editied', null, 'Dummy');
     };
     MessageServiceComponent.prototype.deleteMessage = function (message) {
         this.messages.splice(this.messages.indexOf(message), 1);

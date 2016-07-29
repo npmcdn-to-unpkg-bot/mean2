@@ -5,15 +5,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var message_1 = require('./message');
 var MessageComponent = (function () {
-    function MessageComponent() {
-        this.message = new message_1.Message('The Content', null, 'Max');
+    function MessageComponent(_messageServiceComponent) {
+        this._messageServiceComponent = _messageServiceComponent;
+        this.editClicked = new core_1.EventEmitter();
     }
+    MessageComponent.prototype.onEdit = function (message) {
+        this._messageServiceComponent.editMessage(message);
+    };
+    MessageComponent.prototype.onDelete = function (message) {
+        this._messageServiceComponent.deleteMessage(message);
+    };
+    __decorate([
+        core_1.Input()
+    ], MessageComponent.prototype, "message");
+    __decorate([
+        core_1.Output()
+    ], MessageComponent.prototype, "editClicked");
     MessageComponent = __decorate([
         core_1.Component({
             selector: 'my-message',
-            templateUrl: 'js/app/message/message.component.html'
+            styleUrls: ['js/app/messages/message.component.css'],
+            templateUrl: 'js/app/messages/message.component.html'
         })
     ], MessageComponent);
     return MessageComponent;

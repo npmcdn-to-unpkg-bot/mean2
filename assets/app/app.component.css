@@ -10,3 +10,13 @@
     font-size: 12px;
     width: 19%;
 }
+.header{
+    margin-bottom: 20px;
+}
+ul{
+    text-align: center;
+}
+li{
+    float: none;
+    display:inline-block;
+}

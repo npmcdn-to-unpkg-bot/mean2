@@ -6,19 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var message_1 = require("./message");
-var message_service_component_1 = require("./message-service.component");
 var MessageInputComponent = (function () {
-    function MessageInputComponent() {
+    function MessageInputComponent(_messageService) {
+        this._messageService = _messageService;
     }
-    MessageInputComponent.prototype.onCreate = function (content) {
-        var message = new message_1.Message(content, null, 'Dummy');
+    MessageInputComponent.prototype.onSubmit = function (form) {
+        var message = new message_1.Message(form.content, null, 'Dummy');
         this._messageService.addMessage(message);
     };
     MessageInputComponent = __decorate([
         core_1.Component({
             selector: 'my-message-input',
-            templateUrl: 'js/app/messages/message-input.template.html',
-            providers: [message_service_component_1.MessageServiceComponent]
+            templateUrl: 'js/app/messages/message-input.template.html'
         })
     ], MessageInputComponent);
     return MessageInputComponent;

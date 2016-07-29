@@ -5,17 +5,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var message_1 = require("./message");
+var message_component_1 = require("./message.component");
 var MessageListComponent = (function () {
-    function MessageListComponent() {
-        this.messages = [
-            new message_1.Message('New Message', null, 'Max'),
-            new message_1.Message('Another Message', null, 'Ana')];
+    function MessageListComponent(_messageServiceComponent) {
+        this._messageServiceComponent = _messageServiceComponent;
+        this.messages = [];
     }
+    MessageListComponent.prototype.ngOnInit = function () {
+        this.messages = this._messageServiceComponent.getMessage();
+    };
     MessageListComponent = __decorate([
         core_1.Component({
             selector: 'my-message-list',
-            templateUrl: 'js/app/message/message-list.component.html'
+            templateUrl: 'js/app/messages/message-list.component.html',
+            directives: [message_component_1.MessageComponent]
         })
     ], MessageListComponent);
     return MessageListComponent;

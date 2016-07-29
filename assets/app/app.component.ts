@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import {MessageListComponent} from "./messages/message-list.component";
-import {MessageInputComponent} from "./messages/message-input.component";
+import {MessagesComponent} from "./messages/messages.component";
 
 @Component({
     selector: 'my-app',
     styleUrls: ['js/app/app.component.css'],
     templateUrl: 'js/app/app.template.html',
-    directives: [MessageListComponent,MessageInputComponent]
-
+    directives:[MessagesComponent]
 })
 export class AppComponent {
 

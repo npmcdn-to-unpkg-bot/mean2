@@ -9,9 +9,8 @@ import {MessageServiceComponent} from "./message-service.component";
 export class MessageInputComponent{
     constructor(private _messageService:MessageServiceComponent){}
 
-    onCreate(content:string){
-        const message:Message=new Message(content,null,'Dummy');
+    onSubmit(form:any){
+        const message:Message=new Message(form.content,null,'Dummy');
         this._messageService.addMessage(message);
-
     }
 }

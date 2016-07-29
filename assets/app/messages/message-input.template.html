@@ -1,9 +1,9 @@
 <section class="col-md-8 col-md-offset-2">
-    <form (ngForm)>
+    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
         <div class="form-group">
             <label for="content">Content</label>
-            <input type="text" class="form-control" id="content" #input>
+            <input ngControl="content" type="text" class="form-control" id="content">
         </div>
-        <button type="submit" class="btn btn-primary" (click)="onCreate(input.value)">Send Message</button>
+        <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
 </section>

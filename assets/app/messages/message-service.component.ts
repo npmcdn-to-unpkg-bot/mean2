@@ -1,21 +1,34 @@
 import {Message} from "./message";
-export class MessageServiceComponent{
-    messages : Message[]=[];
+import  {Http,Headers} from '@angular/http';
+import {Injectable} from '@angular/core';
+import  'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
 
-    addMessage(message:Message){
-        this.messages.push(message);
-        console.log(message);
+@Injectable()
+export class MessageServiceComponent {
+    messages:Message[] = [];
+
+    constructor(private _http:Http) {
     }
 
-    getMessage(){
+    addMessage(message:Message) {
+        const body = JSON.stringify(message);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this._http.post("http://localhost:3000/message", body, {headers: headers})
+            .map(response => response.json())
+            .catch(error => Observable.throw(error.json()));
+
+    }
+
+    getMessage() {
         return this.messages;
     }
 
-    editMessage(message:Message){
-        this.messages[this.messages.indexOf(message)]=new Message('Editied',null,'Dummy');
+    editMessage(message:Message) {
+        this.messages[this.messages.indexOf(message)] = new Message('Editied', null, 'Dummy');
     }
 
-    deleteMessage(message:Message){
-        this.messages.splice(this.messages.indexOf(message),1);
+    deleteMessage(message:Message) {
+        this.messages.splice(this.messages.indexOf(message), 1);
     }
 }

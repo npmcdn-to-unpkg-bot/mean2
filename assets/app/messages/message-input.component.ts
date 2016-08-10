@@ -15,7 +15,7 @@ export class MessageInputComponent {
         this._messageService.addMessage(message)
             .subscribe(
                 data=>console.log(data),
-                error=>console.log(error)
+                error=>console.warn(error)
             );
     }
 }

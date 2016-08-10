@@ -40,4 +40,34 @@ router.post('/', function (req, res, next) {
     });
 });
 
+router.patch('/:id', function (req, res, next) {
+    Message.findById(req.params.id, function (err, doc) {
+        if (err) {
+            return req.status(404).json({
+                title: 'An error occoured',
+                error: err
+            });
+        }
+        if (!doc) {
+            return req.status(404).json({
+                title: 'Message not found',
+                error: {message: 'message counld not be found'}
+            });
+        }
+        doc.content = req.body.content;
+        doc.save(function (err, result) {
+            if (err) {
+                return req.status(404).json({
+                    title: 'An error occoured while updating',
+                    error: err
+                });
+            }
+            res.status(200).json({
+                message: 'Message updated',
+                obj: result
+            })
+        });
+    });
+});
+
 module.exports = router;

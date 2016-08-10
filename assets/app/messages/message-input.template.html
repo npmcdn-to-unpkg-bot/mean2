@@ -2,8 +2,9 @@
     <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
         <div class="form-group">
             <label for="content">Content</label>
-            <input ngControl="content" type="text" class="form-control" id="content">
+            <input ngControl="content" type="text" class="form-control" id="content" [value]="message?.content">
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary">{{!message ? 'Send Message' : 'Save Message'}}</button>
+        <button type="button" class="btn btn-danger" *ngIf="message" (click)="onCancel()">Cancel</button>
     </form>
 </section>

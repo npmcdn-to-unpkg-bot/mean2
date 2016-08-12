@@ -4,8 +4,9 @@ import {MessageServiceComponent} from './messages/message-service.component';
 import {LocationStrategy,HashLocationStrategy} from '@angular/common';
 import {ROUTER_PROVIDERS} from '@angular/router'
 import {provide} from '@angular/core'
+import {HTTP_PROVIDERS} from '@angular/http';
 
 //noinspection TypeScriptCheckImport
 import { AppComponent } from "./app.component";
 
-bootstrap(AppComponent,[MessageServiceComponent,ROUTER_PROVIDERS,provide(LocationStrategy,{useClass:HashLocationStrategy})]);
+bootstrap(AppComponent,[MessageServiceComponent,ROUTER_PROVIDERS,provide(LocationStrategy,{useClass:HashLocationStrategy}),HTTP_PROVIDERS]);

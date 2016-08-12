@@ -1,9 +1,11 @@
 import {Component,OnInit} from "@angular/core"
 import {Control,FormBuilder, ControlGroup,Validators} from "@angular/common";
+import {AuthServiceComponent} from "./auth-service.component";
+import {User} from "./user";
 
 @Component({
-    selector:'my-signup'
-    ,template:`
+    selector: 'my-signup'
+    , template: `
     <section class="col-md-8 col-md-offset-2">
         <form [ngFormModel]="myForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
@@ -27,25 +29,34 @@ import {Control,FormBuilder, ControlGroup,Validators} from "@angular/common";
     </section>
     `
 })
-export class SignUpComponent implements OnInit{
+export class SignUpComponent implements OnInit {
     myForm:ControlGroup;
-    constructor(private _fb:FormBuilder){}
-    onSubmit(){
-        console.log(this.myForm.value);
+
+    constructor(private _fb:FormBuilder, private _authService:AuthServiceComponent) {
     }
-    ngOnInit(){
-        this.myForm=this._fb.group({
-            firstName:['',Validators.required],
-            lastName:['',Validators.required],
-            email:['',Validators.compose(
+
+    onSubmit() {
+        const user = new User(this.myForm.value.email, this.myForm.value.password, this.myForm.value.firstName, this.myForm.value.lastName);
+        this._authService.SignUp(user)
+            .subscribe(
+                data=>console.log(data),
+                error=>console.error(error)
+            );
+    }
+
+    ngOnInit() {
+        this.myForm = this._fb.group({
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
+            email: ['', Validators.compose(
                 [Validators.required, this.isEmail]
             )],
-            password:['',Validators.required],
+            password: ['', Validators.required],
         })
     }
 
-    private isEmail(control:Control):{[s:string]:boolean}{
-        if(!control.value.match("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"))
-            return{invalidMail:true};
+    private isEmail(control:Control):{[s:string]:boolean} {
+        if (!control.value.match("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"))
+            return {invalidMail: true};
     }
 }

@@ -53,5 +53,8 @@ export class MessageServiceComponent {
 
     deleteMessage(message:Message) {
         this.messages.splice(this.messages.indexOf(message), 1);
+        return this._http.delete("http://localhost:3000/message/" + message.messageId)
+            .map(response=>response.json())
+            .catch(error=>Observable.throw(error.json()));
     }
 }

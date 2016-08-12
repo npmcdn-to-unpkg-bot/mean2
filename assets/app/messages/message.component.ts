@@ -11,13 +11,18 @@ export class MessageComponent {
     @Input() message:Message;
     @Output() editClicked = new EventEmitter<string>();
 
-    constructor(private _messageServiceComponent:MessageServiceComponent){}
+    constructor(private _messageServiceComponent:MessageServiceComponent) {
+    }
 
-    onEdit(message:Message){
+    onEdit(message:Message) {
         this._messageServiceComponent.editMessage(message);
     }
 
-    onDelete(message:Message){
-        this._messageServiceComponent.deleteMessage(message);
+    onDelete(message:Message) {
+        this._messageServiceComponent.deleteMessage(message)
+            .subscribe(
+                data => console.log(data),
+                error => console.warn(error)
+            )
     }
 }

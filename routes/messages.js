@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var jwt = require('jsonwebtoken');
 var Message = require('../models/message');
 
 router.get('/', function (req, res, next) {
@@ -18,6 +18,18 @@ router.get('/', function (req, res, next) {
                 obj: docs
             });
         });
+});
+
+router.use('/',function(req,res,next){
+    if(jwt.verify(req.query.token,'secret',function(err,decoded){
+            if (err) {
+                return req.status(404).json({
+                    title: 'Authentication failed',
+                    error: err
+                });
+            }
+            next();
+        }));
 });
 
 router.post('/', function (req, res, next) {

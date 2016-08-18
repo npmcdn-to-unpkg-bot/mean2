@@ -20,7 +20,10 @@ export class MessageServiceComponent {
 
         return this._http.post("http://localhost:3000/message" + token, body, {headers: headers})
             .map(response => {
-                this.messages.push(message);
+                const data = response.json().obj;
+                let newmessage = new Message(data.content, data._id, data.user.firstName, data.user._id);
+                this.messages.push(newmessage);
+                return newmessage;
             })
             .catch(error => Observable.throw(error.json()));
 
@@ -42,7 +45,7 @@ export class MessageServiceComponent {
                 const data = response.json().obj;
                 let objs:any[] = [];
                 for (var i = 0; i < data.length; i++) {
-                    let msg = new Message(data[i].content, data[i]._id, 'Dummy', null);
+                    let msg = new Message(data[i].content, data[i]._id, data[i].user.firstName, data[i].user._id);
                     objs.push(msg);
                 }
                 console.log(objs);

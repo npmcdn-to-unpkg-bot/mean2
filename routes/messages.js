@@ -61,21 +61,27 @@ router.post('/', function (req, res, next) {
             });
         });
     });
-
 });
 
 router.patch('/:id', function (req, res, next) {
+    var decoded = jwt.decode(req.query.token);
     Message.findById(req.params.id, function (err, doc) {
         if (err) {
-            return req.status(404).json({
+            return res.status(404).json({
                 title: 'An error occoured',
                 error: err
             });
         }
         if (!doc) {
-            return req.status(404).json({
+            return res.status(404).json({
                 title: 'Message not found',
-                error: {message: 'message counld not be found'}
+                error: {message: 'message could not be found'}
+            });
+        }
+        if(doc.user != decoded.user._id){
+            return res.status(401).json({
+                title: 'User not authorized to Edit',
+                error: {message: 'message could not be found'}
             });
         }
         doc.content = req.body.content;
@@ -95,6 +101,7 @@ router.patch('/:id', function (req, res, next) {
 });
 
 router.delete('/:id', function (req, res, next) {
+    var decoded = jwt.decode(req.query.token);
     Message.findById(req.params.id, function (err, doc) {
         if (err) {
             return res.status(404).json({
@@ -107,6 +114,12 @@ router.delete('/:id', function (req, res, next) {
                 title: 'Unable to find message',
                 error: err
             })
+        }
+        if(doc.user != decoded.user._id){
+            return res.status(401).json({
+                title: 'User not authorized to Delete',
+                error: {message: 'message could not be found'}
+            });
         }
         doc.remove(function (err, result) {
             if (err) {
